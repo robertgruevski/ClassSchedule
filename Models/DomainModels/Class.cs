@@ -19,8 +19,7 @@ namespace ClassSchedule.Models.DomainModels
 		[StringLength(4, MinimumLength = 4, ErrorMessage = "Class time must be 4 characters long.")]
 		[Required(ErrorMessage = "Please enter a class time (in military time format).")]
 		public string MilitaryTime { get; set; } = string.Empty;
-
-		public int TeacherId { get; set; } // Foreign key property
+		public int? TeacherId { get; set; } // Foreign key property
 		[ValidateNever]
 		public Teacher Teacher { get; set; } = null!; // Foreign key property
 		public int DayId { get; set; } // Foreign key property

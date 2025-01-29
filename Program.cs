@@ -1,9 +1,13 @@
+using ClassSchedule.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ClassScheduleContext>(options =>
+	options.EnableSensitiveDataLogging());
 
 builder.Services.AddDbContext<ClassScheduleContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ClassScheduleCS")));
